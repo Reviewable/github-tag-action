@@ -43,7 +43,6 @@ jobs:
 
 - **default_bump** _(optional)_ - Which type of bump to use when [none is explicitly provided](#bumping) (default: `patch`). You can also set `false` to avoid generating a new tag when none is explicitly provided.
 - **custom_tag** _(optional)_ - Custom tag name. If specified, it overrides bump settings.
-- **custom_message** _(optional)_ - Custom message. If specified, it overrides create_annotated_tag settings.
 - **create_annotated_tag** _(optional)_ - Boolean to create an annotated rather than a lightweight one (default: `false`).
 - **tag_prefix** _(optional)_ - A prefix to the tag name (default: `v`).
 - **append_to_pre_release_tag** _(optional)_ - A suffix to the pre-release tag name (default: `<branch>`).
