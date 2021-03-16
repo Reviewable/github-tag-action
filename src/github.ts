@@ -44,6 +44,7 @@ export async function compareCommits(baseRef: string, headRef: string) {
 
 export async function createTag(
   newTag: string,
+  message: string,
   createAnnotatedTag: boolean,
   GITHUB_SHA: string
 ) {
@@ -51,12 +52,12 @@ export async function createTag(
   let annotatedTag:
     | Await<ReturnType<typeof octokit.git.createTag>>
     | undefined = undefined;
-  if (createAnnotatedTag) {
+  if (createAnnotatedTag || message) {
     core.debug(`Creating annotated tag.`);
     annotatedTag = await octokit.git.createTag({
       ...context.repo,
       tag: newTag,
-      message: newTag,
+      message: message ? message : newTag,
       object: GITHUB_SHA,
       type: 'commit',
     });

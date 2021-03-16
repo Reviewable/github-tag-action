@@ -18,6 +18,7 @@ export default async function main() {
   const defaultBump = core.getInput('default_bump') as ReleaseType | 'false';
   const tagPrefix = core.getInput('tag_prefix');
   const customTag = core.getInput('custom_tag');
+  const customMessage = core.getInput('custom_message');
   const releaseBranches = core.getInput('release_branches');
   const preReleaseBranches = core.getInput('pre_release_branches');
   const appendToPreReleaseTag = core.getInput('append_to_pre_release_tag');
@@ -184,5 +185,5 @@ export default async function main() {
     return;
   }
 
-  await createTag(newTag, createAnnotatedTag, GITHUB_SHA);
+  await createTag(newTag, customMessage, createAnnotatedTag, GITHUB_SHA);
 }
